@@ -1,0 +1,5 @@
+CLIENT_ID="SPOTIFY_APP_ID"
+CLIENT_SECRET="SPOTIFY_APP_CLIENT"
+REDIRECT_URI="http://127.0.0.1:8787/callback" # cannot be localhost due to spotify restrictions
+COOKIE_DOMAIN="" # set on production so the subdomain carries the cookie, so in my case .mcgoooo-world
+

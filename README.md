@@ -6,7 +6,7 @@ This small app will add the spotify auth token to the header.
 We will also use this as an api for spotify, to get allt he info we are wanting
 
 
-# getting started
+# Getting started
 Be sure to read and edit the .dev.vars
 
 ```
@@ -15,7 +15,6 @@ npm install
 npm run dev
 ```
 
-# todo
- - [ ] Ci Deployment (is already deployed to spotify.mcgoooo.world)
+# Todo
  - [ ] Tests
  - [ ] Automatic Refresh token

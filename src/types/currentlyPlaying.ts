@@ -19,7 +19,6 @@ export type CurrentlyPlaying = {
     isrc: string | undefined;
     trackNumber: number | undefined;
   };
-  trackUri: string ;
   name: string;
   spotifyTrackUrl: string ;
 };

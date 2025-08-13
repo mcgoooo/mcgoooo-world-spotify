@@ -1,4 +1,4 @@
-import { createBearerTokenHeader } from "../../utils/header";
+import { createBearerTokenHeader } from "../../../utils/header";
 
 export const authTokenExhange = async (
   clientId: string,

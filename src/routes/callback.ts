@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { setCookie } from "hono/cookie";
+import { authTokenExhange } from "../requests/spotify/api/authTokenExchange";
 import { getCurrentlyPlaying } from "../requests/spotify/api/currentlyPlaying";
-import { authTokenExhange } from "../requests/spotify/authTokenExchange";
 import { Env } from "../types/env";
 import { getEnvKey } from "../utils/env";
 import { tokenExchangeErrorUrl } from "../utils/urls";

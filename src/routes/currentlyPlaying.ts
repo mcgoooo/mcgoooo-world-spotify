@@ -1,6 +1,5 @@
 import { Hono } from "hono";
 import { getCookie } from "hono/cookie";
-import { currentlyPlayingNormaliser } from "../normalisers/currentlyPlaying";
 import { getCurrentlyPlaying } from "../requests/spotify/api/currentlyPlaying";
 import { Env } from "../types/env";
 
@@ -11,8 +10,8 @@ currentlyPlayingRoute.get("/currently-playing", async (c) => {
   if (!token) {
     return c.text("" + JSON.stringify(getCookie(c)), 401);
   }
-  const data = await getCurrentlyPlaying(token);
-  return c.json(currentlyPlayingNormaliser(data));
+  const currentlyPlaying = await getCurrentlyPlaying(token);
+  return c.json(currentlyPlaying);
 });
 
 

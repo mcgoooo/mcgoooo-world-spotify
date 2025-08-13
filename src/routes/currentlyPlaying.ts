@@ -11,7 +11,13 @@ currentlyPlayingRoute.get("/currently-playing", async (c) => {
     return c.text("" + JSON.stringify(getCookie(c)), 401);
   }
   const currentlyPlaying = await getCurrentlyPlaying(token);
-  return c.json(currentlyPlaying);
+
+  if (!currentlyPlaying) {
+    return c.text("No track currently playing", 404);
+  }
+  return c.json({
+    ...currentlyPlaying
+  });
 });
 
 

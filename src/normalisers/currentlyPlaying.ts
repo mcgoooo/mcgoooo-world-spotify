@@ -5,7 +5,7 @@ export const currentlyPlayingNormaliser = (data: any): CurrentlyPlaying => {
     isPlaying: data.is_playing,
     spotifyUrl: data.context?.external_urls?.spotify,
     spotifyApiUrl: data.context?.href,
-    uri: data.context?.uri,
+    uri:  data.item?.uri,
     progress: data.progress_ms,
     album: {
       spotifyUrl: data.item?.album?.artists?.[0]?.external_urls?.spotify,
@@ -25,7 +25,6 @@ export const currentlyPlayingNormaliser = (data: any): CurrentlyPlaying => {
       isrc: data.item?.external_ids?.isrc,
       trackNumber: data.item?.track_number,
     },
-    trackUri: data.item?.uri,
     name: data.item?.name,
     spotifyTrackUrl: data.item?.external_urls?.spotify,
   };

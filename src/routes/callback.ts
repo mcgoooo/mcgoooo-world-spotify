@@ -24,8 +24,10 @@ callbackRoute.get("/callback", async (c) => {
   const returnTo = getCookie(c, "return_to");
   if (returnTo) {
     return c.redirect(returnTo, 302);
+  } else {
+      const data = await spotifyUser(tokenJson.access_token);
+      return c.text(JSON.stringify(data, null, 2));
   }
 
-  const data = await spotifyUser(tokenJson.access_token);
-  return c.text(JSON.stringify(data, null, 2));
+
 });

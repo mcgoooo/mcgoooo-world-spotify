@@ -13,6 +13,7 @@ export const loginRoute = new Hono<{ Bindings: Env }>();
 loginRoute.get("/login", (c) => {
   const state = randomString(16);
   const returnTo = c.req.query('return_to');
+  console.log(returnTo,"returnTo");
   if (returnTo) {
       setCookie(c, "return_to", returnTo);
   }

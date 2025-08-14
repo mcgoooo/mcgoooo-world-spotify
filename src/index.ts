@@ -7,7 +7,7 @@ import { Env } from "./types/Env";
 
 const app = new Hono<{ Bindings: Env }>();
 [loginRoute, callbackRoute, currentUserRoute,currentUserPlaylistsRoute].forEach((route) => {
-  app.route("/", route);
+  app.route("/spotify", route);
 });
 
 export default app;

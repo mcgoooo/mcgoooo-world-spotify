@@ -18,9 +18,7 @@ callbackRoute.get("/callback", async (c) => {
     c.req.query("code")!,
   );
   const cookieOptions: { domain?: string; secure: boolean } = { secure: true };
-  if (getEnvKey(c, "COOKIE_DOMAIN"))
-    cookieOptions.domain = getEnvKey(c, "COOKIE_DOMAIN");
-  console.log(tokenJson)
+
   setCookie(c, "spotify_access_token", tokenJson.access_token, cookieOptions);
   setCookie(c, "spotify_refresh_token", tokenJson.refresh_token, cookieOptions);
   const returnTo = getCookie(c, "return_to");

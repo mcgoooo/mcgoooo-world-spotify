@@ -1,4 +1,3 @@
-import { SpotifyUser } from "../../../../types/SpotifyUser";
 import { SpotifyPlaylistResponse } from "../../../../types/SpotifyUser/Playlist";
 import { spotifyHeaders } from "../../utils/fetch";
 import { spotifyUserPlaylistUrl } from "../../utils/url";
@@ -15,5 +14,5 @@ export const spotifyUserPlaylists = async (
   }
   const data = (await response.json());
   
-  return data as SpotifyUser;
+  return data as SpotifyPlaylistResponse;
 }

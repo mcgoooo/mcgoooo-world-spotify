@@ -1,5 +1,7 @@
 import { Hono } from "hono";
-import { Env } from "../types/env";
+import { setCookie } from "hono/cookie";
+import { Env } from "../types/Env";
+
 import { getEnvKey } from "../utils/env";
 import { randomString } from "../utils/string";
 import { loginUrl } from "../utils/urls";
@@ -10,6 +12,10 @@ export const loginRoute = new Hono<{ Bindings: Env }>();
 
 loginRoute.get("/login", (c) => {
   const state = randomString(16);
+  const returnTo = c.req.query('return_to');
+  if (returnTo) {
+      setCookie(c, "return_to", returnTo);
+  }
   return c.redirect(
     loginUrl(
       getEnvKey(c, "CLIENT_ID"),

@@ -1,11 +1,11 @@
 import { Hono } from "hono";
 import { callbackRoute } from "./routes/callback";
-import { currentlyPlayingRoute } from "./routes/currentlyPlaying";
 import { loginRoute } from "./routes/login";
-import { Env } from "./types/env";
+import { currentUserRoute } from "./routes/user";
+import { Env } from "./types/Env";
 
 const app = new Hono<{ Bindings: Env }>();
-[loginRoute, callbackRoute, currentlyPlayingRoute].forEach((route) => {
+[loginRoute, callbackRoute, currentUserRoute].forEach((route) => {
   app.route("/", route);
 });
 

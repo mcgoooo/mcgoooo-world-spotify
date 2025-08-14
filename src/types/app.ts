@@ -1,6 +1,6 @@
 import { Context } from "hono";
 import { BlankInput } from "hono/types";
-import { Env } from "./env";
+import { Env } from "./Env";
 
 export type AppContext = Context<
   {

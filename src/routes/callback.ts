@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import { setCookie } from "hono/cookie";
+import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { authTokenExhange } from "../requests/spotify/api/authTokenExchange";
-import { getCurrentlyPlaying } from "../requests/spotify/api/currentlyPlaying";
-import { Env } from "../types/env";
+import { spotifyUser } from "../requests/spotify/api/spotifyUser";
+import { Env } from "../types/Env";
 import { getEnvKey } from "../utils/env";
 import { tokenExchangeErrorUrl } from "../utils/urls";
 
@@ -23,6 +23,12 @@ callbackRoute.get("/callback", async (c) => {
   console.log(tokenJson)
   setCookie(c, "spotify_access_token", tokenJson.access_token, cookieOptions);
   setCookie(c, "spotify_refresh_token", tokenJson.refresh_token, cookieOptions);
-  const data = await getCurrentlyPlaying(tokenJson.access_token);
+  const returnTo = getCookie(c, "return_to");
+  if (returnTo) {
+    deleteCookie(c, 'returnTo')
+    return c.redirect(returnTo, 302);
+  }
+
+  const data = await spotifyUser(tokenJson.access_token);
   return c.text(JSON.stringify(data, null, 2));
 });

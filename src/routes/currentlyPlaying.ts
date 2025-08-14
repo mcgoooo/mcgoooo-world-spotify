@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { getCookie } from "hono/cookie";
 import { getCurrentlyPlaying } from "../requests/spotify/api/currentlyPlaying";
-import { Env } from "../types/env";
+import { Env } from "../types/Env";
 
 export const currentlyPlayingRoute = new Hono<{ Bindings: Env }>();
 

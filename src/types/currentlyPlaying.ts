@@ -22,3 +22,4 @@ export type CurrentlyPlaying = {
   name: string;
   spotifyTrackUrl: string ;
 };
+

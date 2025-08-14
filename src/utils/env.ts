@@ -1,5 +1,5 @@
 import { AppContext } from "../types/app";
-import { Env } from "../types/env";
+import { Env } from "../types/Env";
 
 export const getEnvKey = (c: AppContext, envKey: keyof Env) => c.env[envKey];
 
